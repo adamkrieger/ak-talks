@@ -114,16 +114,28 @@
 					- Prefer Flat Structure
 
 					Case Study:
-					- AWS Products (Dynamo, Route 53, S3)
+					- AWS Products (DynamoDB, Route 53, S3)
 					- AWS Resources (RDS, EC2)
 					- Non-AWS Resources (VMs)
+					- Non-AWS Products (mongodb, logstash, docker)
 				</section>
 
 				<section>
 					<section>
 						What's Ansible
+						- host: local or remote (ssh), static or enumerated (.py)
+						- task: something performed on a host
+							- as simple as file copy
+							- as complex as installing a service
+						- role: a series of tasks that collectively describe a capability
+						- playbooks: a series of role and host associations
+						- vaults: collections of encrypted strings and/or files 
 
-						
+						Game changers:
+						- declarative syntax
+						- established templating
+						- agentless
+
 					</section>
 					<section>
 						What's Cloudformation
