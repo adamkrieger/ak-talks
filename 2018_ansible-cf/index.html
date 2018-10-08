@@ -29,10 +29,150 @@
 			<div class="slides">
 				<section>
 					<h1>The Freedom of IaC</h1>
+					- Smooth Deployments
+					- Cookie-cutter Environments
+					- Secure Operations
+					-> Happy Customers
 				</section>
 
 				<section>
-					Infrastructure as Code
+					Tenets of IaC
+					- Task Development
+					- Knowledge Decentralization
+					- Context Separation
+					- Shared Accountability
+				</section>
+
+				<section>
+					Toolset Overview
+					IaC Deep Dive
+					- Principle
+					- Practice
+					- Code Sample
+				</section>
+
+				<section>
+					<section>
+						Ansible
+						- Agentless Automation Toolset
+						- Keyword:
+							- Inventory (hosts)
+							- Playbooks (automation)
+							- Roles (services)
+							- Tasks
+							- Variables
+						</section>
+
+					<section>
+						Ansible Playbooks
+						- yml, j2 in
+						- ssh, python out
+					</section>
+
+					<section>
+						Ansible Tasks
+						- simple: copy, apt, bash
+						- complex: cloud, database, monitoring
+					</section>
+
+					<section>
+						ansible yml sample
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						Cloudformation
+						- AWS Resource Provisioning
+						- Keywords:
+							- Templates (yml)
+							- Resources
+							- Parameters 
+							- Mappings
+					</section>
+
+					<section>
+						AWS Interactions
+						1. CLI
+						2. CloudFormation
+						3. Web Console
+					</section>
+
+					<section>
+						aws cf sample
+					</section>
+
+					<section>
+						aws + ansible sample
+					</section>
+				</section>
+
+				<section>
+					Automation of Repeatable Tasks
+					- Every task must be in source control
+					- Complex tasks are made up of simple ones
+					- Highest level is Business abstraction
+
+					How to source control
+					- Pick something Small and Integral
+						- File delivery
+						- Service start
+					- Use ansible tasks, or aws resources
+					
+					How to complex over simple
+					- Use ansible roles, playbooks
+					- Keep it simple, sequential
+
+					DevBusOps
+					- #1 criticism of DevOps is that it's not value
+					- Building business-facing controls negates
+					- Batch size can exactly match feature with very little cost
+				</section>
+
+				<section>
+					Decentralization of Complex Knowledge
+					- Don't reinvent the wheel
+					- Review regularly
+					- Let the code speak for itself
+
+					Don't reinvent the wheel
+					- Prefer OTC Solutions
+					- Use ansible modules
+					- Use vendor tools (CF)
+					- Put command strings in run.sh files
+
+					Review Regularly
+					- Code review every deployment change
+					- Refactor before changes to keep it tidy
+
+					Let the Code Speak
+					- README.md answers the most basic questions
+					- ./**/README.md answers more specific questions
+					- Filenames are like object names
+					- task or resource names are like function names
+				</section>
+
+				<section>
+					Separate Product from Context
+					- Move all environment info into variables
+					- Build an environment switch
+					- Layer/Tag environments (nonprod, load)
+				</section>
+
+				<section>
+					Boost Security with Shared Accountability
+					- Implement vaults
+					- Use deployment roles instead of super admins
+					- Implement auditing and logging
+				</section>
+
+				<section>
+					Where we want to be
+					- 100% Automation (eliminate procedural variance)
+					- Handle any state (handle environmental variance)
+					- Practically Zero dependency sharing (reduce dependency complexity)
+					-> Make deployment a business process
 				</section>
 
 				<section>
@@ -43,7 +183,7 @@
 							<li>Ansible and Cloudformation</li>
 							<li>Obligatory Food Metaphor</li>
 							<li>Four Keys to Good IaC</li>
-							<li>-Silver Bullets</li>
+							<li>No Silver Bullets</li>
 						</ul>
 					</section>
 				</section>
@@ -56,13 +196,7 @@
 					- Assess state before deployment
 				</section>
 
-				<section>
-					Where we want to be
-					- 100% Automation (eliminate procedural variance)
-					- Handle any state (handle environmental variance)
-					- Practically Zero dependency sharing (reduce dependency complexity)
-					-> Make deployment a business process
-				</section>
+				
 
 				<section>
 					Infrastructure Operations
@@ -100,15 +234,15 @@
 
 				<section>
 					IaC Freedoms
-					- Componentization of Repeatable Tasks
+					- Coding: Componentization of Repeatable Tasks
 						- Renewing SSL Certs (ansible)
 						- Applying Security Groups (CF)
-					- Decentralization of Complex Knowledge
+					- Source Control: Decentralization of Complex Knowledge
 						- Deploy logstash
 						- Deploy cloudfront
-					- Segregation of Product and Context
+					- Configuration Management: Segregation of Product and Context
 						- multiple environments
-					- Security through Shared Accountability
+					- Vaulting: Security through Shared Accountability
 						- RSP Handbook, mandatory vacation
 						- Dave becomes a contributor
 							- Dave's password doesn't get shared with someone who isn't Dave
