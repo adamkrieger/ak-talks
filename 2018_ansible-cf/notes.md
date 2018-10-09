@@ -111,3 +111,32 @@ This session will focus on cleanly laying the foundation for multi-environment A
 
 ## Slides
 
+Feedback Notes
+
+- Speed of actual deployment (N-environment)
+- Secrets demonstrated
+- How to automate the hard stuff
+
+
+Visual comparison of ansible and cf crossfading
+
+Tool expl:
+- hello world equiv of toolset
+- Visual of ansible concepts
+- Visual of difference between ansible and cloud formation 
+    - Ex: ansible ssh’s
+
+Automation of repeatable task
+Visual of simple tasks being wrapped into complex, and being titled as business concerns (deploy commerce site)
+Error handling during deployment
+
+Tyler
+- Expand acronym on first slide
+- (Expand AWS, or put logos)
+- Logos for diff modules within ansible
+- Ansible history in a nutshell
+- Ansible pricing, builder, background, enterprise level?
+- Graphic showing vendor options
+- Product selection, why we chose ansible
+- Center on jinja (v j2, jinja) (need to talk about file interpretation)
+- Ditch CF component explanation in exchange for

@@ -28,51 +28,73 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h1>The Freedom of IaC</h1>
-					- Smooth Deployments
-					- Cookie-cutter Environments
-					- Secure Operations
-					-> Happy Customers
+					<h2>The Freedom of IaC</h2>
+					- Smooth Deployments<br />
+					- Cookie-cutter Environments<br />
+					- Secure Operations<br />
+					-> Happy Customers<br />
 				</section>
 
 				<section>
-					Tenets of IaC
-					- Task Development
-					- Knowledge Decentralization
-					- Context Separation
-					- Shared Accountability
+					<h2>Principles of IaC</h2>
+					<ul>
+						<li>Develop Automated Tasks</li>
+						<li>Decentralize Knowledge</li>
+						<li>Separate Context from Product</li>
+						<li>Share Accountability</li>
+					</ul>
 				</section>
 
 				<section>
-					Toolset Overview
-					IaC Deep Dive
-					- Principle
-					- Practice
-					- Code Sample
+					<h2>Agenda</h2>
+					<ul>
+						<li>Toolset Overview</li>
+						<li>IaC Deep Dive (x4)
+							<ul>
+								<li>- Principle</li>
+								<li>- Practice</li>
+								<li>- Code Sample</li>
+							</ul>		
+						</li>
+					</ul>
 				</section>
 
 				<section>
-					<section>
-						Ansible
-						- Agentless Automation Toolset
-						- Keyword:
-							- Inventory (hosts)
-							- Playbooks (automation)
-							- Roles (services)
-							- Tasks
-							- Variables
-						</section>
 
 					<section>
-						Ansible Playbooks
-						- yml, j2 in
+						<h2>Toolset Overview: Ansible</h2>
+					</section>
+
+					<section>
+						<h2>Ansible</h2>
+						<ul>
+							<li>Agentless Automation Toolset</li>
+							<li>Keyword:
+								<ul>
+									<li>Inventory (hosts)</li>
+									<li>Playbooks (automation)</li>
+									<li>Roles (services)</li>
+									<li>Tasks</li>
+									<li>Variables</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Ansible Playbooks</h2>
+						- yml, j2 in<br/>
 						- ssh, python out
 					</section>
 
 					<section>
-						Ansible Tasks
-						- simple: copy, apt, bash
+						<h2>Ansible Tasks</h2>
+						- simple: copy, apt, bash<br />
 						- complex: cloud, database, monitoring
+					</section>
+
+					<section>
+						ansible directory sample
 					</section>
 
 					<section>
@@ -82,21 +104,47 @@
 				</section>
 
 				<section>
+
 					<section>
-						Cloudformation
-						- AWS Resource Provisioning
-						- Keywords:
-							- Templates (yml)
-							- Resources
-							- Parameters 
-							- Mappings
+						<h2>Toolset Overview: CloudFormation</h2>
 					</section>
 
 					<section>
-						AWS Interactions
-						1. CLI
-						2. CloudFormation
-						3. Web Console
+						<h2>Cloudformation</h2>
+						<ul>
+							<li>AWS Resource Provisioning</li>
+							<li>
+								Keywords:
+								<ul>
+									<li>Templates (yml)</li>
+									<li>Resources</li>
+									<li>Parameters</li>
+									<li>Mappings</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>AWS Interfaces</h2>
+						<ol>
+							<li>CLI</li>
+							<li>CloudFormation</li>
+							<li>Web Console</li>
+							<li>SDKs</li>
+						</ol>
+					</section>
+
+					<section>
+						<h2>CloudFormation Templates</h2>
+						- yml in<br/>
+						- aws resources out
+					</section>
+
+					<section>
+						<h2>AWS Resources</h2>
+						- resource: ec2 instance, rds database<br />
+						- product: lambda functions, fargate clusters
 					</section>
 
 					<section>
@@ -109,71 +157,116 @@
 				</section>
 
 				<section>
-					Automation of Repeatable Tasks
-					- Every task must be in source control
-					- Complex tasks are made up of simple ones
-					- Highest level is Business abstraction
+					<section>
+						<h2>Automation of Repeatable Tasks</h2>
+						<ul>
+							<li>Every task must be in source control</li>
+							<li>Complex tasks are made up of simple ones</li>
+							<li>Highest level is Business abstraction</li>
+						</ul>
+					</section>
 
-					How to source control
-					- Pick something Small and Integral
-						- File delivery
-						- Service start
-					- Use ansible tasks, or aws resources
-					
-					How to complex over simple
-					- Use ansible roles, playbooks
-					- Keep it simple, sequential
+					<section>
+						<h2>How to source control</h2>
+						<ul>
+							<li>Pick something Small and Integral
+								<ul>
+									<li>File delivery</li>
+									<li>Service start</li>
+								</ul>
+							</li>
+							<li>Use ansible tasks, or aws resources</li>
+						</ul>
+					</section>
 
-					DevBusOps
-					- #1 criticism of DevOps is that it's not value
-					- Building business-facing controls negates
-					- Batch size can exactly match feature with very little cost
+					<section>
+						<h2>How to complex over simple</h2>
+						<ul>
+							<li>Use ansible roles, playbooks</li>
+							<li>Keep it simple, sequential</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>DevBusOps</h2>
+						<ul>
+							<li>#1 criticism of DevOps is that it's not value</li>
+							<li>Building business-facing controls negates</li>
+							<li>Batch size can exactly match feature with very little cost</li>
+						</ul>
+					</section>
 				</section>
 
 				<section>
-					Decentralization of Complex Knowledge
-					- Don't reinvent the wheel
-					- Review regularly
-					- Let the code speak for itself
+					<section>
+						<h2>Decentralization of Complex Knowledge</h2>
+						<ul>
+							<li>Don't reinvent the wheel</li>
+							<li>Review regularly</li>
+							<li>Let the code speak for itself</li>
+						</ul>
+					</section>
 
-					Don't reinvent the wheel
-					- Prefer OTC Solutions
-					- Use ansible modules
-					- Use vendor tools (CF)
-					- Put command strings in run.sh files
+					<section>
+						<h2>Don't reinvent the wheel</h2>
+						<ul>
+							<li>Prefer OTC Solutions</li>
+							<li>Use ansible modules</li>
+							<li>Use vendor tools (CF)</li>
+							<li>Put command strings in run.sh files</li>
+						</ul>
+					</section>
 
-					Review Regularly
-					- Code review every deployment change
-					- Refactor before changes to keep it tidy
+					<section>
+						<h2>Review Regularly</h2>
+						<ul>
+							<li>Code review every deployment change</li>
+							<li>Refactor before changes to keep it tidy</li>
+						</ul>
+					</section>
 
-					Let the Code Speak
-					- README.md answers the most basic questions
-					- ./**/README.md answers more specific questions
-					- Filenames are like object names
-					- task or resource names are like function names
+					<section>
+						<h2>Let the Code Speak</h2>
+						<ul>
+							<li>README.md answers the most basic questions</li>
+							<li>./**/README.md answers more specific questions</li>
+							<li>Filenames are like object names</li>
+							<li>task or resource names are like function names</li>
+						</ul>
+					</section>
 				</section>
 
 				<section>
-					Separate Product from Context
-					- Move all environment info into variables
-					- Build an environment switch
-					- Layer/Tag environments (nonprod, load)
-					- Prefer immutability 
+					<h2>Separate Product from Context</h2>
+					<ul>
+						<li>Move all environment info into variables</li>
+						<li>Build an environment switch</li>
+						<li>Layer/Tag environments (nonprod, load)</li>
+						<li>Prefer immutability </li>
+					</ul>
 				</section>
 
 				<section>
-					Boost Security with Shared Accountability
-					- Implement vaults
-					- Use deployment roles instead of super admins
-					- Implement auditing and logging
+					<h2>Boost Security with Shared Accountability</h2>
+					<ul>
+						<li>Implement vaults</li>
+						<li>Use deployment roles instead of super admins</li>
+						<li>Implement auditing and logging</li>
+					</ul>
 				</section>
 
 				<section>
-					Where we want to be
-					- 100% Automation (eliminate procedural variance)
-					- Handle any state (handle environmental variance)
-					- Practically Zero dependency sharing (reduce dependency complexity)
+					<h2>Where we want to be</h2>
+					<ul>
+						<li>100% Automation (eliminate procedural variance)</li>
+						<li>Handle any state (handle environmental variance)</li>
+						<li>Practically Zero dependency sharing (reduce dependency complexity)</li>
+					</ul>
 					-> Make deployment a business process
+				</section>
+
+				<section>
+					THE END
 				</section>
 
 				<section>
