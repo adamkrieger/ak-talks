@@ -118,7 +118,7 @@ Feedback Notes
 - How to automate the hard stuff
 
 
-Visual comparison of ansible and cf crossfading
+Visual comparison of ansible and cf crossfading (vendor v non-vendor)
 
 Tool expl:
 - hello world equiv of toolset
