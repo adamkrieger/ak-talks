@@ -33,9 +33,10 @@
 						<i>Infrastructure as Code</i><br /><br />
 						<ul>
 							<li>Smooth Deployments</li>
-							<li>Cookie-cutter Environments</li>
+							<li>Resilient Teams</li>
+							<li>Production-like Environments</li>
 							<li>Secure Operations</li>
-							<li>-> Happy Customers</li>
+							<li>-> Small Batches</li>
 						</ul>
 					</section>
 
@@ -49,17 +50,39 @@
 							<li>DevOps</li>
 						</ul>
 					</section>
+
+					<section>
+						<h3>This Talk</h3>
+						<a href="https://github.com/adamkrieger/ak-talks">https://github.com/adamkrieger/ak-talks</a><br />
+						<a href="https://github.com/adamkrieger/iacfreedom">https://github.com/adamkrieger/iacfreedom</a>
+					</section>
+				</section>
+
+				<section>
+					<h4>Types of Runbook</h4>
+					<ol class="alphalist">
+						<li>Cranial</li>
+						<li>Checklisted</li>
+						<li>Scripted</li>
+						<li>Built</li>
+					</ol>
 				</section>
 
 				<section>
 					<section>
 						<h2>Principles of IaC</h2>
+						<ul>
+							<li>Automate</li>
+							<li>Document</li>
+							<li>Abstract</li>
+							<li>Secure</li>
+						</ul>
 					</section>
 
 					<section>
 						<h3>Automation</h3>
 						<i>of repetitive tasks</i><br />
-						<img src="img/iacfreedom_automation.png" />
+						<img src="img/iacfreedom_automation2.png" />
 					</section>
 
 					<section>
@@ -71,13 +94,13 @@
 					<section>
 						<h3>Abstraction</h3>
 						<i>of product from context</i><br />
-						<img src="img/iacfreedom_abstraction.png" />
+						<img src="img/iacfreedom_abstraction2.png" />
 					</section>
 
 					<section>
 						<h3>Security</h3>
 						<i>via role-based access control</i>
-						<img src="img/iacfreedom_security.png" />
+						<img src="img/iacfreedom_security2.png" />
 					</section>
 
 					<section>
@@ -85,7 +108,7 @@
 						<ul>
 							<li>Automate Repetitive Tasks</li>
 							<li>Document Complex Knowledge</li>
-							<li>Abstact Product from Context</li>
+							<li>Abstract Product from Context</li>
 							<li>Secure with RBAC</li>
 						</ul>
 					</section>
@@ -151,346 +174,32 @@
 				</section>
 
 				<section>
-					<h2>Agenda</h2>
-					<ul>
-						<li>Toolset Overview</li>
-						<li>IaC Deep Dive (x4)
-							<ul>
-								<li>- Principle</li>
-								<li>- Practice</li>
-								<li>- Code Sample</li>
-							</ul>		
-						</li>
-					</ul>
-				</section>
-
-				<section>
-
 					<section>
-						<h2>Toolset Overview: Ansible</h2>
+						<h3>Demo Repo</h3>
 					</section>
 
 					<section>
-						<h2>Ansible</h2>
-						<ul>
-							<li>Agentless Automation Toolset</li>
-							<li>Keyword:
-								<ul>
-									<li>Inventory (hosts)</li>
-									<li>Playbooks (automation)</li>
-									<li>Roles (services)</li>
-									<li>Tasks</li>
-									<li>Variables</li>
-								</ul>
-							</li>
-						</ul>
-					</section>
-
-					<section>
-						<h2>Ansible Playbooks</h2>
-						- yml, j2 in<br/>
-						- ssh, python out
-					</section>
-
-					<section>
-						<h2>Ansible Tasks</h2>
-						- simple: copy, apt, bash<br />
-						- complex: cloud, database, monitoring
-					</section>
-
-					<section>
-						ansible directory sample
-					</section>
-
-					<section>
-						ansible yml sample
-					</section>
-
-				</section>
-
-				<section>
-
-					<section>
-						<h2>Toolset Overview: CloudFormation</h2>
-					</section>
-
-					<section>
-						<h2>Cloudformation</h2>
-						<ul>
-							<li>AWS Resource Provisioning</li>
-							<li>
-								Keywords:
-								<ul>
-									<li>Templates (yml)</li>
-									<li>Resources</li>
-									<li>Parameters</li>
-									<li>Mappings</li>
-								</ul>
-							</li>
-						</ul>
-					</section>
-
-					<section>
-						<h2>AWS Interfaces</h2>
 						<ol>
-							<li>CLI</li>
-							<li>CloudFormation</li>
-							<li>Web Console</li>
-							<li>SDKs</li>
+							<li>Ansible Only</li>
+							<li>AWS Modules</li>
+							<li>AWS CloudFormation</li>
 						</ol>
 					</section>
-
-					<section>
-						<h2>CloudFormation Templates</h2>
-						- yml in<br/>
-						- aws resources out
-					</section>
-
-					<section>
-						<h2>AWS Resources</h2>
-						- resource: ec2 instance, rds database<br />
-						- product: lambda functions, fargate clusters
-					</section>
-
-					<section>
-						aws cf sample
-					</section>
-
-					<section>
-						aws + ansible sample
-					</section>
 				</section>
 
 				<section>
-					<section>
-						<h2>Automation of Repeatable Tasks</h2>
-						<ul>
-							<li>Every task must be in source control</li>
-							<li>Complex tasks are made up of simple ones</li>
-							<li>Highest level is Business abstraction</li>
-						</ul>
-					</section>
-
-					<section>
-						<h2>How to source control</h2>
-						<ul>
-							<li>Pick something Small and Integral
-								<ul>
-									<li>File delivery</li>
-									<li>Service start</li>
-								</ul>
-							</li>
-							<li>Use ansible tasks, or aws resources</li>
-						</ul>
-					</section>
-
-					<section>
-						<h2>How to complex over simple</h2>
-						<ul>
-							<li>Use ansible roles, playbooks</li>
-							<li>Keep it simple, sequential</li>
-						</ul>
-					</section>
-
-					<section>
-						<h2>DevBusOps</h2>
-						<ul>
-							<li>#1 criticism of DevOps is that it's not value</li>
-							<li>Building business-facing controls negates</li>
-							<li>Batch size can exactly match feature with very little cost</li>
-						</ul>
-					</section>
-				</section>
-
-				<section>
-					<section>
-						<h2>Decentralization of Complex Knowledge</h2>
-						<ul>
-							<li>Don't reinvent the wheel</li>
-							<li>Review regularly</li>
-							<li>Let the code speak for itself</li>
-						</ul>
-					</section>
-
-					<section>
-						<h2>Don't reinvent the wheel</h2>
-						<ul>
-							<li>Prefer OTC Solutions</li>
-							<li>Use ansible modules</li>
-							<li>Use vendor tools (CF)</li>
-							<li>Put command strings in run.sh files</li>
-						</ul>
-					</section>
-
-					<section>
-						<h2>Review Regularly</h2>
-						<ul>
-							<li>Code review every deployment change</li>
-							<li>Refactor before changes to keep it tidy</li>
-						</ul>
-					</section>
-
-					<section>
-						<h2>Let the Code Speak</h2>
-						<ul>
-							<li>README.md answers the most basic questions</li>
-							<li>./**/README.md answers more specific questions</li>
-							<li>Filenames are like object names</li>
-							<li>task or resource names are like function names</li>
-						</ul>
-					</section>
-				</section>
-
-				<section>
-					<h2>Separate Product from Context</h2>
+					<h3>Goals</h3>
 					<ul>
-						<li>Move all environment info into variables</li>
-						<li>Build an environment switch</li>
-						<li>Layer/Tag environments (nonprod, load)</li>
-						<li>Prefer immutability </li>
+						<li>IaC Primer</li>
+						<li>Where to Start</li>
+						<li>Examples</li>
 					</ul>
 				</section>
 
 				<section>
-					<h2>Boost Security with Shared Accountability</h2>
-					<ul>
-						<li>Implement vaults</li>
-						<li>Use deployment roles instead of super admins</li>
-						<li>Implement auditing and logging</li>
-					</ul>
+					<h3>The End</h3>
 				</section>
 
-				<section>
-					<h2>Where we want to be</h2>
-					<ul>
-						<li>100% Automation (eliminate procedural variance)</li>
-						<li>Handle any state (handle environmental variance)</li>
-						<li>Practically Zero dependency sharing (reduce dependency complexity)</li>
-					</ul>
-					-> Make deployment a business process
-				</section>
-
-				<section>
-					THE END
-				</section>
-
-				<section>
-					<section>
-						<h2>This talk:</h2>
-						<ul>
-							<li>Before and After</li>
-							<li>Ansible and Cloudformation</li>
-							<li>Obligatory Food Metaphor</li>
-							<li>Four Keys to Good IaC</li>
-							<li>No Silver Bullets</li>
-						</ul>
-					</section>
-				</section>
-
-				<section>
-					Where we are/were
-					+ Different environments for different SLAs, audiences
-					+ Same binary everywhere (except for mobile, embedded)
-					- Still have manual actions
-					- Assess state before deployment
-				</section>
-
-				
-
-				<section>
-					Infrastructure Operations
-					- Provisioning (Bun)
-					- Installation (Burger)
-					- Secrets (Sauce)
-					- Configuration (No Pickles)
-					- Operation (Bite)
-
-					As Code
-					- Requirements
-						- Provision a resource
-						- Move files
-						- Find/Replace
-						- Run service
-					- Source Control
-						- Rebuild in case the server dies (immutability)
-						- Back up the 'what'
-					- Code Reviews
-						- Agree on syntax, methods
-						- Share knowledge
-					- Quality Assurance
-						- Same deployment method from dev to prod
-					- User Experience
-						- Ops are people too
-
-					Product!
-
-					+ Consistency
-					+ Speed
-					+ Data
-					+ Joy
-
-				</section>
-
-				<section>
-					IaC Freedoms
-					- Coding: Componentization of Repeatable Tasks
-						- Renewing SSL Certs (ansible)
-						- Applying Security Groups (CF)
-					- Source Control: Decentralization of Complex Knowledge
-						- Deploy logstash
-						- Deploy cloudfront
-					- Configuration Management: Segregation of Product and Context
-						- multiple environments
-					- Vaulting: Security through Shared Accountability
-						- RSP Handbook, mandatory vacation
-						- Dave becomes a contributor
-							- Dave's password doesn't get shared with someone who isn't Dave
-							- Dave cannot introduct malicious artifacts for risk of getting outted by the collective 
-				</section>
-
-				<section>
-					Design Language
-					- Think Production First
-					- Prefer Idiomatic Solutions
-					- Prefer Immutability
-					- Prefer Idempotence
-					- Prefer Flat Structure
-
-					Case Study:
-					- AWS Products (DynamoDB, Route 53, S3)
-					- AWS Resources (RDS, EC2)
-					- Non-AWS Resources (VMs)
-					- Non-AWS Products (mongodb, logstash, docker)
-				</section>
-
-				<section>
-					<section>
-						What's Ansible
-						- host: local or remote (ssh), static or enumerated (.py)
-						- task: something performed on a host
-							- as simple as file copy
-							- as complex as installing a service
-						- role: a series of tasks that collectively describe a capability
-						- playbooks: a series of role and host associations
-						- vaults: collections of encrypted strings and/or files 
-
-						Game changers:
-						- declarative syntax
-						- established templating (do what you're best at)
-						- agentless
-
-					</section>
-					<section>
-						What's Cloudformation
-						- AWS proprietary
-					</section>
-				</section>
-				<section>
-					How do these fit in with the rest of DevOps
-				</section>
-				<section>
-					
-				</section>
 			</div>
 		</div>
 
