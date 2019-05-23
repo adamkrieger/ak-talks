@@ -57,3 +57,15 @@ export with uppercase, private with lowercase
 Error handling
 return errors rather than try catch
 
+Sections
+
+- Do more with less
+  - no runtime
+  - low footprint
+  - low mem?
+  - cheap cpu?
+  - array
+    - stack
+    - queue
+  - map
+    - set
