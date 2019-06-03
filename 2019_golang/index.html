@@ -4,16 +4,18 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Freedom of IaC</title>
+		<title>Concurrency First</title>
 
 		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
-		<link rel="stylesheet" href="../reveal.js/css/theme/black.css">
+		<link rel="stylesheet" href="../reveal.js/css/theme/white.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
 
 		<!-- AK Custom Styling -->
-		<link rel="stylesheet" href="../akstyle/akstyle.css">
+		<link rel="stylesheet" href="../akstyle/akstyle2.css">
+
+		<link rel="stylesheet" href="../highlight/styles/atelier-cave-light.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -31,7 +33,7 @@
 				<section>
 
 					<section>
-						<h2>Concurrency-First Development in Go</h2>
+						<h2>Concurrency-First Development in Golang</h2>
 						<ul>
 							<li>Do More with Less</li>
 							<li>Flow-Oriented Syntax</li>
@@ -59,25 +61,214 @@
 				</section>
 
 				<section>
-					Uses for golang
-					- microservices
-					- task compute
-					- embedded software
-					- REST services
-					- load balancers
-					- sidecars
-					- orchestrators
-					- message hubs
-					- service registries
-					(show logo page)
+					<section>
+						<h3>Go is for...</h3>
+						<ul>
+							<li>Microservices</li>
+							<li>Task Compute</li>
+							<li>Embedded</li>
+							<li>Load Balancers</li>
+							<li>Orchestrators</li>
+							<li>Message Hubs</li>
+							<li>Sidecars</li>
+							<li>Service Registries</li>
+							<li>REST</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Built in Go</h3>
+						<div class="logo-field">
+							<img src="img/docker.png">
+							<img src="img/etcd-logo.jpg">
+							<img src="img/istio.png">
+							<br />
+							<img src="img/jaeger.png">
+							<img src="img/kube.png">
+							<img src="img/minio.png">
+							<br />
+							<img src="img/prometheus.png">
+							<img src="img/terraform.png">
+							<img src="img/traefik.svg">
+						</div>
+					</section>
+
+					<section>
+						<h3>Lambda (Code)</h3>
+						<pre><code class="golang">package main
+
+import (
+	"github.com/aws/aws-lambda-go/events"
+	"github.com/aws/aws-lambda-go/lambda"
+)
+
+func main() {
+	lambda.Start(YourCodeHere)
+}
+
+func YourCodeHere(request events.APIGatewayProxyRequest) (
+	response events.APIGatewayProxyResponse, err error) {
+	//Congratulations, you're serverless!
+}</code></pre>
+					</section>
+
+					<section>
+						<h3>Lambda (Build)</h3>
+						<pre><code class="bash">#!/usr/bin/env bash
+mkdir -p bin
+GOOS=linux go build -o bin/main main.go
+mkdir -p binpkg
+zip -rj binpkg/your_app.zip bin</code></pre>
+					</section>
 				</section>
 
 				<section>
-					Do more with less
+					<section>
+						<h2>Resourcefulness</h2>
+					</section>
 
-					Data structures serve multiple functions
-					no need for underlying runtime
-					very small initial footprint
+					<section>
+						<h3>Base Res Mem (MacOS, htop)</h3>
+						<table>
+							<tr>
+								<td>java8</td>
+								<td>28248 kb</td>
+							</tr>
+							<tr>
+								<td>go 1.11</td>
+								<td>16328 kb</td>
+							</tr>
+						</table>
+					</section>
+
+					<section>
+						<h3>Docker Image Size</h3>
+						<table>
+							<tr>
+								<td>openjdk:8-jre-stretch</td>
+								<td>145MB</td>
+							</tr>
+							<tr>
+								<td>dotnet/core/runtime:2.2.5-alpine</td>
+								<td>88.1MB</td>
+							</tr>
+							<tr>
+								<td>golang:alpine</td>
+								<td>*350MB</td>
+							</tr>
+							<tr>
+								<td>alpine:latest</td>
+								<td>5.53MB</td>
+							</tr>
+						</table>
+					</section>
+
+					<section>
+						<h3>Java Data Structures</h3>
+						<ul>
+							<li>Array</li>
+							<li>List</li>
+							<li>ArrayList</li>
+							<li>Map</li>
+							<li>Set</li>
+							<li>Queue</li>
+							<li>Collection</li>
+							<li>Enumeration</li>
+							<li>Navigable(Map/Set)</li>
+							<li>Sorted(Map/Set)</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Go Data Structures</h3>
+							<pre><code class="golang">//Array
+arrOf := []string{"one", "two", "three"}
+
+//Map
+mapOf := map[string]int {
+	"one": 1,
+	"two": 2,
+	"three": 3,
+}</code></pre>
+					</section>
+
+					<section>
+						<h3>Duck Typing</h3>
+						<pre><code class="golang">type Worker interface {
+	DoWork() error
+	Description() string
+}
+
+type workerImpl struct {
+	description string
+}
+
+func (wi *workerImpl) DoWork() error {
+	//TODO
+	return nil
+}
+func (wi *workerImpl) Description() string {return wi.description}</code></pre>
+					</section>
+
+					<section>
+						<h3>Arrays (and Slices)</h3>
+						<pre><code class="golang">workerArray := []Worker{i1, i2, i3}
+// Array          Slice--v
+workerArray = workerArray[1 : len(workerArray)-1]
+
+for wIndex, worker := range workerArray {
+	fmt.Println(workerArray[wIndex].Description())
+	_ = worker.DoWork()
+}</code></pre>
+					</section>
+
+					<section>
+						<h3>Stack</h3>
+						<pre><code class="golang">workerStack := []Worker{}
+
+//Push
+workerStack = append(workerStack, item)
+
+//Pop
+next := workerStack[len(workerStack)-1]
+workerStack = workerStack[:len(workerStack)-1]</code></pre>
+					</section>
+
+					<section>
+						<h3>Queue</h3>
+						<pre><code class="golang">workerQueue := []Worker{}
+
+//Enqueue
+workerQueue = append(workerQueue, item)
+
+//Dequeue
+next := workerQueue[0]
+workerQueue = workerQueue[1:]</code></pre>
+					</section>
+
+					<section>
+						<h3>Set</h3>
+						<pre><code class="golang">workerSet := map[Worker]interface{}{
+	i1: nil,
+	i2: nil,
+}
+
+//Delete
+delete(workerSet, i1)
+
+//Add
+workerSet[i1] = nil</code></pre>
+					</section>
+
+					<section>
+						<h2>Resourcefulness</h2>
+
+						<ul>
+							<li>Small Initial Footprint</li>
+							<li>Cross-compile rather than multi-platform</li>
+							<li>Versatile Data Structures</li>
+						</ul>
+					</section>
 				</section>
 
 				<section>
@@ -96,7 +287,15 @@
 					- scoping state
 					- passing state
 					- protecting state
+					Thread safety, concurrency design - (30)
+					  - scope
+						- data structure
+						- function
+						- workflow
+						- process / applications
+
 					managing db connections
+
 					wrapping sdks and apis
 				</section>
 
@@ -132,9 +331,12 @@
 					{ src: '../reveal.js/plugin/markdown/marked.js' },
 					{ src: '../reveal.js/plugin/markdown/markdown.js' },
 					{ src: '../reveal.js/plugin/notes/notes.js', async: true },
-					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: '../highlight/highlight.pack.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
 		</script>
+
+<!-- <script src="../highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script> -->
 	</body>
 </html>

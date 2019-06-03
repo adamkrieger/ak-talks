@@ -1,9 +1,24 @@
 @import url(https://cdn.rawgit.com/tonsky/FiraCode/1.205/distr/fira_code.css);
 
+.reveal {
+    background-color: white;
+    color: black;
+}
+
+.reveal h2 {
+    text-transform: unset;
+    text-align: left;
+}
+.reveal h3 {
+    text-transform: unset;
+    text-align: left;
+}
+
 .slides {
     font-family: 'Fira Code', monospace !important;
     font-feature-settings: "calt" 1;
     font-variant-ligatures: contextual;
+    width: 1000px;
 }
 
 .reveal section img {
@@ -13,4 +28,13 @@
 
 .reveal .alphalist {
     list-style-type: upper-alpha;
+}
+
+.reveal section .logo-field img {
+    width: 125px;
+    height: 125px;
+}
+
+.reveal li {
+    list-style: none;
 }
