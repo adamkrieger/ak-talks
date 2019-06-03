@@ -282,6 +282,39 @@ workerSet[i1] = nil</code></pre>
 					</section>
 
 					<section>
+						<h3>Divergence</h3>
+						<pre><code class="golang">resultChan := make(chan *result)
+
+//Async
+go doWorkAsync(resultChan)
+//Sync
+result := doWork()
+
+//Wait for Async to catch up
+resultAsync := <-resultChan
+//Merge results
+fmt.Println(result.success && resultAsync.success)</code></pre>
+					</section>
+
+					<section>
+						<h3>Convergence</h3>
+						<pre><code class="golang">tasks := map[int]*taskData{
+	1: &taskData{resultChan: retChan, input: "1"},
+	2: &taskData{resultChan: retChan, input: "2"},
+	3: &taskData{resultChan: retChan, input: "3"},
+}
+
+for k, task := range tasks {
+	go doWork(k, task)
+}
+
+for range tasks {
+	result := <-retChan
+	fmt.Println(result.correlation, " - ", result.success)
+}</code></pre>
+					</section>
+
+					<section>
 						Concurrency management
 
 						Divergence (21)
