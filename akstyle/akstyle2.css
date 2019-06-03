@@ -1,0 +1,16 @@
+@import url(https://cdn.rawgit.com/tonsky/FiraCode/1.205/distr/fira_code.css);
+
+.slides {
+    font-family: 'Fira Code', monospace !important;
+    font-feature-settings: "calt" 1;
+    font-variant-ligatures: contextual;
+}
+
+.reveal section img {
+    border: 0px;
+    background: rgba(0,0,0,0);
+}
+
+.reveal .alphalist {
+    list-style-type: upper-alpha;
+}
