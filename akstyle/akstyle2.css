@@ -29,6 +29,7 @@
 .reveal section img {
     border: 0px;
     background: rgba(0,0,0,0);
+    box-shadow: 0 0 0;
 }
 
 .reveal .alphalist {
