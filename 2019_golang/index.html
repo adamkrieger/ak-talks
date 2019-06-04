@@ -50,16 +50,20 @@
 					<section>
 						<h3>Adam Krieger</h3>
 						<ul>
+							<li>
+								<img style="width: 300px" src="img/Online-Wordmark-CMYK.jpg">
+							</li>
 							<li>Senior Consultant</li>
 							<li>Technical Architect</li>
 							<li>Senior Software Developer</li>
+							<li>AWS Certified Developer</li>
 						</ul>
 					</section>
 
 					<section>
 						<h3>This Talk</h3>
 						<a href="https://github.com/adamkrieger/ak-talks">https://github.com/adamkrieger/ak-talks</a><br />
-						<a href="https://github.com/adamkrieger/iacfreedom">https://github.com/adamkrieger/iacfreedom</a>
+						<a href="https://github.com/adamkrieger/iacfreedom">https://github.com/adamkrieger/go-conc-mgmt</a>
 					</section>
 				</section>
 
@@ -372,6 +376,11 @@ for range tasks {
 						</ul>
 					</section>
 
+					
+				</section>
+
+				<section>
+
 					<section>
 						<h3>Actors</h3>
 						<ul>
@@ -381,9 +390,7 @@ for range tasks {
 							<li>Can only affect others via Messaging</li>
 						</ul>
 					</section>
-				</section>
 
-				<section>
 					<section>
 						<h3>Actor Patterns</h3>
 						<ul>
@@ -426,48 +433,42 @@ for range tasks {
 
 				<section>
 					<section>
-						<h2>How</h2>
+						<h2>Actors in Practice</h2>
 					</section>
 
 					<section>
-						Concurrency management
+						<h3>Design</h3>
+						<img style="width:600px;" src="img/workflow_A.png">
+					</section>
 
-						Divergence (21)
-						Convergence (22)
-						dynamic workloads (11)
-						workflow, actors (12)
+					<section>
+						<h3>But Why?</h3>
+						<img style="width:600px;" src="img/workflow_B.png">
+					</section>
+
+					<section>
+						<h3>Actor Implementation</h3>
+						<img style="width:600px;" src="img/workflow_A.png">
 					</section>
 				</section>
 
 				<section>
-					building resilient applications
+					<h3>Resilience</h3>
 
-					Thread safety
-					- scoping state
-					- passing state
-					- protecting state
-					Thread safety, concurrency design - (30)
-					  - scope
-						- data structure
-						- function
-						- workflow
-						- process / applications
-
-					managing db connections
-
-					wrapping sdks and apis
+					<ul>
+						<li>Protect State with Channels</li>
+						<li>Plan for Panic</li>
+					</ul>
 				</section>
 
 				<section>
-					Why do I recommend it:
-
-					- extremely lightweight and fast like C++
-					- simpler to write than Java, C#
-					- concurrency model like Erlang
-
-					- secure, native options for certificate processing
-					- sdks available for just about everything, especially your favorite cloud
-					- 
+					<h2>In Summary</h2>
+					<ul>
+						<li>Fast</li>
+						<li>Simple Syntax</li>
+						<li>Lightweight</li>
+						<li>Enables Distributed Design</li>
+					</ul>
 				</section>
 
 				<section>
