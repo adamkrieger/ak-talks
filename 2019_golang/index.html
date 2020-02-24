@@ -33,36 +33,43 @@
 				<section>
 
 					<section>
+						<img src="img/SponsorLogosForSlides.png">
+					</section>
+
+					<section>
 						<h2>Concurrency-First Development in Golang</h2>
 						<ul>
-							<li>Do More with Less</li>
-							<li>Flow-Oriented Syntax</li>
-							<li>Uptime Above All</li>
-							<li>Bonus Round</li>
+							<li>Use Cases</li>
+							<li>Resourcefulness</li>
+							<li>Concurrency</li>
+							<li>Actors</li>
+							<li>Safety</li>
 						</ul>
 					</section>
 
 					<section>
 						<h3>Adam Krieger</h3>
 						<ul>
-							<li>Nerd (1986)</li>
-							<li>Dev (2007)</li>
-							<li>Online (2015)</li>
-							<li>Cloud</li>
-							<li>DevOps</li>
+							<li>
+								<img style="width: 300px" src="img/Online-Wordmark-CMYK.jpg">
+							</li>
+							<li>Senior Consultant</li>
+							<li>Technical Architect</li>
+							<li>Senior Software Developer</li>
+							<li>AWS Certified Developer</li>
 						</ul>
 					</section>
 
 					<section>
 						<h3>This Talk</h3>
 						<a href="https://github.com/adamkrieger/ak-talks">https://github.com/adamkrieger/ak-talks</a><br />
-						<a href="https://github.com/adamkrieger/iacfreedom">https://github.com/adamkrieger/iacfreedom</a>
+						<a href="https://github.com/adamkrieger/iacfreedom">https://github.com/adamkrieger/go-conc-mgmt</a>
 					</section>
 				</section>
 
 				<section>
 					<section>
-						<h3>Go is for...</h3>
+						<h3>Go is great for...</h3>
 						<ul>
 							<li>Microservices</li>
 							<li>Task Compute</li>
@@ -132,14 +139,47 @@ zip -rj binpkg/your_app.zip bin</code></pre>
 						<h3>Base Res Mem (MacOS, htop)</h3>
 						<table>
 							<tr>
-								<td>java8</td>
-								<td>28248 kb</td>
+								<td></td>
+								<td>1 x</td>
+								<td>1k x</td>
 							</tr>
 							<tr>
-								<td>go 1.11</td>
-								<td>16328 kb</td>
+								<td>java8</td>
+								<td>28032 kb</td>
+								<td>89436 kb</td>
+							</tr>
+							<tr>
+								<td>go 1.9</td>
+								<td>12700 kb</td>
+								<td>12532 kb</td>
 							</tr>
 						</table>
+					</section>
+
+					<section>
+						<h3>Base Res Mem (MacOS, htop)</h3>
+						<table>
+							<tr>
+								<td></td>
+								<td>1 x</td>
+								<td>1k x</td>
+								<td>1m x</td>
+							</tr>
+							<tr>
+								<td>java8</td>
+								<td>28032 kb</td>
+								<td>89436 kb</td>
+								<td style="color:red">OOME</td>
+							</tr>
+							<tr>
+								<td>go 1.9</td>
+								<td>12700 kb</td>
+								<td>12532 kb</td>
+								<td>12440 kb</td>
+							</tr>
+						</table>
+						<br />
+						<a href="http://tleyden.github.io/blog/2014/10/30/goroutines-vs-threads/">http://tleyden.github.io/blog/2014/10/30/goroutines-vs-threads/</a>
 					</section>
 
 					<section>
@@ -147,7 +187,7 @@ zip -rj binpkg/your_app.zip bin</code></pre>
 						<table>
 							<tr>
 								<td>openjdk:8-jre-stretch</td>
-								<td> 145 MB</td>
+								<td style="width: 180px"> 145 MB</td>
 							</tr>
 							<tr>
 								<td>dotnet/core/runtime:2.2.5-alpine</td>
@@ -209,6 +249,14 @@ func (wi *workerImpl) DoWork() error {
 	return nil
 }
 func (wi *workerImpl) Description() string {return wi.description}</code></pre>
+					</section>
+
+					<section>
+						<h3>Interfaces</h3>
+						<ul>
+							<li>Refs are struct pointers</li>
+							<li>One per Use Case</li>
+						</ul>
 					</section>
 
 					<section>
@@ -313,51 +361,122 @@ for range tasks {
 	fmt.Println(result.correlation, " - ", result.success)
 }</code></pre>
 					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>How is this Different?</h2>
+					</section>
 
 					<section>
-						Concurrency management
+						<h3>Mutexes vs Channels</h3>
+						<ul>
+							<li>At Rest vs In Motion</li>
+							<li>Box vs Pipe</li>
+						</ul>
+					</section>
 
-						Divergence (21)
-						Convergence (22)
-						dynamic workloads (11)
-						workflow, actors (12)
+					
+				</section>
+
+				<section>
+
+					<section>
+						<h3>Actors</h3>
+						<ul>
+							<li>Make <i>local</i> decisions</li>
+							<li>Process/Send messages</li>
+							<li>Manage other Actors</li>
+							<li>Can only affect others via Messaging</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Actor Patterns</h3>
+						<ul>
+							<li>Generators</li>
+							<li>Processors</li>
+							<li>Data Managers</li>
+							<li>Actor Managers</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Generators</h3>
+						<img src="img/actor_generator.png">
+					</section>
+
+					<section>
+						<h3>Processors</h3>
+						<img src="img/actor_processor.png">
+					</section>
+
+					<section>
+						<h3>Data Managers</h3>
+						<img src="img/actor_datamanager.png">
+					</section>
+
+					<section>
+						<h3>Actor Managers</h3>
+						<img src="img/actor_actormanager.png">
+					</section>
+
+					<section>
+						<h3>Best Practice</h3>
+						<ul>
+							<li>Isolate concurrency from logic</li>
+							<li>Pass the Baton</li>
+							<li>Protect Scope</li>
+						</ul>
 					</section>
 				</section>
 
 				<section>
-					building resilient applications
+					<section>
+						<h2>Actors in Practice</h2>
+					</section>
 
-					Thread safety
-					- scoping state
-					- passing state
-					- protecting state
-					Thread safety, concurrency design - (30)
-					  - scope
-						- data structure
-						- function
-						- workflow
-						- process / applications
+					<section>
+						<h3>Design</h3>
+						<img style="width:600px;" src="img/workflow_A.png">
+					</section>
 
-					managing db connections
+					<section>
+						<h3>But Why?</h3>
+						<img style="width:600px;" src="img/workflow_B.png">
+					</section>
 
-					wrapping sdks and apis
+					<section>
+						<h3>Actor Implementation</h3>
+						<img style="width:600px;" src="img/workflow_A.png">
+					</section>
 				</section>
 
 				<section>
-					Why do I recommend it:
+					<h3>Resilience</h3>
 
-					- extremely lightweight and fast like C++
-					- simpler to write than Java, C#
-					- concurrency model like Erlang
+					<ul>
+						<li>Protect State with Channels</li>
+						<li>Plan for Panic</li>
+					</ul>
+				</section>
 
-					- secure, native options for certificate processing
-					- sdks available for just about everything, especially your favorite cloud
-					- 
-					HELLO15
+				<section>
+					<h2>In Summary</h2>
+					<ul>
+						<li>Fast</li>
+						<li>Simple Syntax</li>
+						<li>Lightweight</li>
+						<li>Enables Distributed Design</li>
+					</ul>
 				</section>
 
 				<section>
 					<h3>The End</h3>
+					<ul>
+						<li>Questions Welcome</li>
+						<li>Feedback Appreciated</li>
+					</ul>
 				</section>
 
 			</div>

@@ -69,3 +69,7 @@ Sections
     - queue
   - map
     - set
+
+Graphics
+- each kind of actor
+- each best practice
