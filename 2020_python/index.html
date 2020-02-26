@@ -1,0 +1,357 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>5 Python Things</title>
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+		<!-- AK Custom Styling -->
+		<link rel="stylesheet" href="../akstyle/akstyle2.css">
+
+		<link rel="stylesheet" href="../highlight/styles/atelier-cave-light.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+
+					<section>
+						<h2>5 Things I Didn't Know About Python</h2>
+					</section>
+
+					<section>
+						<h3>Adam Krieger</h3>
+						<ul>
+							<li>
+								<img style="width: 300px" src="img/Online-Wordmark-CMYK.jpg">
+							</li>
+							<li>Senior Consultant</li>
+							<li>Security Architect</li>
+							<li>AWS Certified Developer</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Python is great for...</h3>
+						<ul>
+							<li>Task Compute</li>
+							<li>Embedded</li>
+							<li>Stateless REST</li>
+							<li>Scripting</li>
+							<li style="font-size: small;">Data & ML</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Built in Python</h3>
+						<div class="logo-field">
+							<img src="img/ansible_logo.png">
+							<img src="img/yum_logo.png">
+							<img src="img/tensorflow_logo.png">
+							<br />
+							<img src="img/civ4_logo.jpg">
+							<img src="img/blender_logo.png">
+							<img src="img/google_logo.png">
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p style="text-align: left;"><i>
+							It all got started, I believe, because the very earliest Googlers (Sergey, Larry, Craig, …) made a good engineering decision: “Python where we can, C++ where we must.”
+						</i></p>
+						<span style="text-align: right;">- Alex Martelli</span>
+					</section>
+
+					<section>
+						<h3>Python Facts!</h3>
+						<ul>
+							<li>Cross-platform</li>
+							<li>Free and Open Source</li>
+							<li>Large Standard Library</li>
+							<li>GUI Programming? (Tkinter)</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Python Facts!!</h3>
+						<ul>
+							<li>Object-Oriented</li>
+							<li>Interpreted</li>
+							<li>Easy to Learn/Use</li>
+						</ul>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h3>20200101</h3>
+					</section>
+
+					<section>
+						<h3>Python 2 EOL</h3>
+						<ul>
+							<li>Gone from Ubuntu 20.04 (April)</li>
+							<li>ArchLinux (2010) <pre>/usr/bin/python -> 3</pre></li>
+							<li>RHEL 7 (2.7) 2024</li>
+							<li>Mostly side-by-side</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>20200101 - 202X????</h3>
+						<ul>
+							<li>New proj: 3.x</li>
+							<li>python == python2</li>
+							<li>Control your environment (pyenv)</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Since it's 2020... Docker</h3>
+						<ul>
+							<li>Alpine: 5.58MB</li>
+							<li>Alpine-py3: 109MB</li>
+						</ul>
+
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>dunder Methods</h3>
+						<ul>
+							<li><pre>__init__</pre></li>
+							<li><pre>__str__</pre></li>
+						</ul>
+					</section>
+
+					<section>
+						<pre><code class="python">class Example:
+	def __init__(self, numValue):
+		self.numValue = numValue
+
+	def __str__(self):
+		return 'The number is ' + str(self.numValue)
+
+	def __repr__(self):
+		return '{numValue: ' + str(self.numValue) + '}'
+
+ex = Example(3)
+
+print(str(ex))
+print(repr(ex))</code></pre>
+
+<pre>>python3 dunder_init_str_repr.py
+The number is 3
+{numValue: 3}</pre>
+					</section>
+
+					<section>
+						<pre><code class="python">__len__ -> len()
+__getitem__ -> obj[idx]
+__reversed__ -> reverse(iterable)
+__eq__ -> a == b
+__lt__ -> a < b
+__add__ -> a + b</code></pre>
+					</section>
+
+					<section>
+						<pre><code class="python">class Example:
+	def __call__(self):
+		print('Doing important things!')
+
+print('init...')
+inst = Example()
+print('calling...')
+inst()</code></pre>
+<pre>>python3 dunder_call.py
+init...
+calling...
+Doing important things!</pre>
+					</section>
+
+					<section>
+						<pre><code class="python">class Example:
+	def __enter__(self):
+		print('Reserving resource...')
+
+	def __exit__(self, exType, exVal, exTraceBack):
+		if exVal:
+			print('Error Occured: ' + repr(exVal))
+		print('Releasing resource...')
+
+with Example() as inst:
+	print('Do work')
+	raise Exception('Work failed')</code></pre>
+	<pre>>python3 dunder_3.py
+Reserving resource...
+Do work
+Error Occured: Exception('Work failed')
+Releasing resource...
+Traceback (most recent call last):
+	File "dunder_3.py", line 14, in <module>
+	raise Exception('Work failed')
+Exception: Work failed</pre>
+					</section>
+
+					<section>
+						<span>but that's really it...</span>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Functional?</h3>
+						<ul>
+							<li>map()</li>
+							<li>filter()</li>
+							<li>functools.reduce()</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<pre><code class="python">if __name__ == "__main__"</code></pre>
+					</section>
+
+					<section>
+						<span>main.py</span>
+						<pre><code class="python">if __name__ == "__main__":
+	print("main.py is Running as main.")
+else:
+	print("main.py is Imported.")</code></pre>
+	<pre>>python3 main.py
+main.py is Running as main.</pre>
+					</section>
+
+					<section>
+						<span>nonmain.py</span>
+						<pre><code class="python">from main import Example
+
+inst = Example()
+inst.doWork()</code></pre>
+<pre>>python3 nonmain.py
+main.py is Imported.
+Important work being done</pre>
+					</section>
+
+					<section>
+						<span>main2.py</span>
+						<pre><code class="python">class Example:
+		def doWork(self):
+			print('Important work being done')
+	
+	if __name__ == "__main__":
+		print("main2.py is Running as main.")
+	else:
+		raise Exception("main2.py is not intended to be imported")</code></pre>
+						<pre>python3 nonmain2.py
+Traceback (most recent call last):
+	File "nonmain2.py", line 1, in <module>
+	from main2 import Example
+	File "/Users/akrieger/source/aktalks_python2020/main2.py", line 8, in <module>
+	raise Exception("main2.py is not intended to be imported")
+Exception: main2.py is not intended to be imported</pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Privacy is a Lie</h3>
+					</section>
+
+					<section>
+						<pre><code class="python">class Secretive:
+	def __init__(self):
+		self.__secret = 'loose lips sink ships'
+
+	def __secretiveWork(self):
+		print('make a stealth check')
+
+inst = Secretive()
+
+print(inst._Secretive__secret)
+print(inst._Secretive__secretiveWork())</code></pre>
+<pre>>python3 notprivate.py
+loose lips sink ships
+make a stealth check</pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Everything is Dynamic</h3>
+					</section>
+					<section><pre><code class="python">from types import MethodType
+
+def attachable(self):
+	print('attachable() thinks the fact is ' + self.fact)
+
+myType = type("dynatype",(),{'fact':"bears can't lie"})
+inst = myType()
+
+print(type(inst))
+
+myType.myBoundMethod = MethodType(attachable, myType)
+
+inst.myBoundMethod()</code></pre>
+<pre>python3 dynamic.py
+<class '__main__.dynatype'>
+attachable() thinks the fact is bears can't lie</pre></section>
+				</section>
+
+				<section>
+					<h3>The End</h3>
+					<ul>
+						<li>Questions Welcome</li>
+						<li>Feedback Appreciated</li>
+					</ul>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: '../reveal.js/plugin/markdown/marked.js' },
+					{ src: '../reveal.js/plugin/markdown/markdown.js' },
+					{ src: '../reveal.js/plugin/notes/notes.js', async: true },
+					{ src: '../highlight/highlight.pack.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+
+<!-- <script src="../highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script> -->
+	</body>
+</html>
